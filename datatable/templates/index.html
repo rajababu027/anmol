@@ -84,11 +84,44 @@
     </table>
 
 
+
+
+    <table class="table">
+        <form method="post" role="form" class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Office</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for instance in employeFilterData %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}
+               
+            </tbody>
+        </form>
+    </table>
+
+<!-- 
     {% for instance in employeFilterData %}
     <h1>
-        {{ instance.fields.name}}
+        {{ instance.fields.salary}}
     </h1>
-    {% for %}
+    {% endfor %} -->
 
 
 

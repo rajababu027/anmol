@@ -8,16 +8,19 @@ def employeeData(request):
     if request.method=='POST':
         TextData = request.POST['name']
         print(TextData)
-        employeFilterData = serializers.serialize(f"python",employee.objects.filter(name="Raja"))
+        employeFilterData = serializers.serialize(f"python",employee.objects.filter(name=TextData))
         # TextStore(TextData=TextData).save()
         # results = TextStore.objects.filter(topic__startswith=f"{TextData}")
-        # print("-----------------")
-        # print(results)
-        # print("-----------------")
-        employeData = serializers.serialize("python",employee.objects.all())
-        # context = {
-        #     'employeData':employeData,
-        #     'employeFilterData':employeFilterData,
-        # }
-        return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
-    return render(request,'index.html',{'employeData':employeData})
+        print("-----------------")
+        print(employeFilterData)
+        print("-----------------")
+    employeData = serializers.serialize("python",employee.objects.all())
+    print("-----------------")
+    print(employeData)
+    print("-----------------")
+    # context = {
+    #     'employeData':employeData,
+    #         # 'employeFilterData':employeFilterData,
+    # }
+    return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
+    # return render(request,'index.html',{'employeData':employeData,})
