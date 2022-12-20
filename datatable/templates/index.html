@@ -46,35 +46,35 @@
 
                     <td>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="position">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </td>
 
                     <td>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="office">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </td>
 
                     <td>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="age">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </td>
 
                     <td>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="date">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </td>
 
                     <td>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="salary">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </td>
@@ -110,8 +110,62 @@
                     <td>{{instance.fields.date}}</td>
                     <td>{{instance.fields.salary}}</td>
                 </tr>
-                {% endfor %}
-               
+                {% endfor %}  
+
+                {% for instance in positionData %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}  
+
+                {% for instance in officeData %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}  
+
+                {% for instance in ageData %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}  
+
+                {% for instance in date %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}  
+
+                {% for instance in salaryData %}
+                <tr>
+                    <td>{{instance.fields.name}}</td>
+                    <td>{{instance.fields.position}}</td>
+                    <td>{{instance.fields.office}}</td>
+                    <td>{{instance.fields.age}}</td>
+                    <td>{{instance.fields.date}}</td>
+                    <td>{{instance.fields.salary}}</td>
+                </tr>
+                {% endfor %}  
             </tbody>
         </form>
     </table>

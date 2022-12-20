@@ -6,21 +6,31 @@ from .models import employee
 
 def employeeData(request):
     if request.method=='POST':
-        TextData = request.POST['name']
-        print(TextData)
-        employeFilterData = serializers.serialize(f"python",employee.objects.filter(name=TextData))
-        # TextStore(TextData=TextData).save()
-        # results = TextStore.objects.filter(topic__startswith=f"{TextData}")
-        print("-----------------")
-        print(employeFilterData)
-        print("-----------------")
+        name = request.POST['name']
+        position = request.POST['position']
+        office = request.POST['office']
+        age = request.POST['age']
+        date = request.POST['date']
+        salary = request.POST['salary']
+
+        employeFilterData = serializers.serialize(f"python",employee.objects.filter(name=name))
+        positionData = serializers.serialize(f"python",employee.objects.filter(position=position))
+        officeData = serializers.serialize(f"python",employee.objects.filter(office=office))
+        ageData = serializers.serialize(f"python",employee.objects.filter(age=age))
+        date = serializers.serialize(f"python",employee.objects.filter(date=date))
+        salaryData = serializers.serialize(f"python",employee.objects.filter(salary=salary))
     employeData = serializers.serialize("python",employee.objects.all())
     print("-----------------")
     print(employeData)
     print("-----------------")
-    # context = {
-    #     'employeData':employeData,
-    #         # 'employeFilterData':employeFilterData,
-    # }
-    return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
-    # return render(request,'index.html',{'employeData':employeData,})
+    context = {
+        'employeData':employeData,
+        'employeFilterData':employeFilterData,
+        'positionData':positionData,
+        'officeData':officeData,
+        'ageData':ageData,
+        'date':date,
+        'salaryData':salaryData,
+    }
+    # return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
+    return render(request,'index.html',context)
