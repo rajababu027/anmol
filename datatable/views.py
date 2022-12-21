@@ -13,6 +13,7 @@ def employeeData(request):
         date = request.POST['date']
         salary = request.POST['salary']
 
+        
         employeFilterData = serializers.serialize(f"python",employee.objects.filter(name=name))
         positionData = serializers.serialize(f"python",employee.objects.filter(position=position))
         officeData = serializers.serialize(f"python",employee.objects.filter(office=office))
@@ -20,17 +21,17 @@ def employeeData(request):
         date = serializers.serialize(f"python",employee.objects.filter(date=date))
         salaryData = serializers.serialize(f"python",employee.objects.filter(salary=salary))
     employeData = serializers.serialize("python",employee.objects.all())
-    print("-----------------")
-    print(employeData)
-    print("-----------------")
     context = {
-        'employeData':employeData,
-        'employeFilterData':employeFilterData,
-        'positionData':positionData,
-        'officeData':officeData,
-        'ageData':ageData,
-        'date':date,
-        'salaryData':salaryData,
-    }
-    # return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
+            'employeData':employeData,
+            'employeFilterData':employeFilterData,
+            'positionData':positionData,
+            'officeData':officeData,
+            'ageData':ageData,
+            'date':date,
+            'salaryData':salaryData,
+        }
+    #     else:
+
+    # # return render(request,'index.html',{'employeData':employeData,'employeFilterData':employeFilterData,})
+        # return render(request,'index.html',context)
     return render(request,'index.html',context)
